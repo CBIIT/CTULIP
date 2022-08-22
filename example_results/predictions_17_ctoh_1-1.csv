@@ -1,0 +1,5 @@
+samples,predicted_class,probability
+SRR10351677,Brain Lower Grade Glioma,0.99990666
+SRR10362449,Brain Lower Grade Glioma,0.9998493
+1zebA_H2D,None,0.30236387
+2zebA_H2D,None,0.20876877
