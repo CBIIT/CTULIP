@@ -29,7 +29,7 @@ def get_arg():
     reqwdef = parse.add_argument_group("required with default")
     optargs = parse.add_argument_group("optional")
     reqargs.add_argument("-i", "--input", type=str, required=True, help="Provide the full path of the gene expression matrix file (FPKM-UQ) in the required format.")
-    reqwdef.add_argument("-t", "--types", type=int, default=32, help="Indicate the number of tumor types, 17 or 18(inlcudes GBM class), you want to use for classification.")
+    reqwdef.add_argument("-t", "--types", type=int, default=17, help="Indicate the number of tumor types, 17 or 18(inlcudes GBM class), you want to use for classification.")
     ##reqwdef.add_argument("-g", "--genes", type=str, default="pc", help="Indicate 'all' if you want to use all 60K genes or 'pc' for protein coding genes only.")
     optargs.add_argument("-o", "--output_dir", type=str, help="Provide the full path to the output directory.")
     optargs.add_argument("-m", "--min_score", type=float, help="Give the minimum probability score (0.0 to 1.0) for keeping the predicted primary tumor type.")
