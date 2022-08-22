@@ -4,7 +4,7 @@ CTULIP (the Canine TUmor cLassIfication Predictor) classifies Canine RNA-Seq sam
 
 ## Description
 
-CTULIP is a modified framework of [TULIP](https://github.com/CBIIT/TULIP) which is a 1D convolutional neural network for classifying Canine RNA-Seq data with [14,761 genes](https://github.com/CBIIT/TULIP/blob/main/gene_lists/caninegenes.txt). CTULIP can classify either list into [17](https://github.com/CBIIT/TULIP/blob/main/labels/17_tumors.csv) or [18](https://github.com/CBIIT/TULIP/blob/main/labels/18_tumors.csv) (that includes Glioblastoma multiforme) tumor types. 
+CTULIP is a modified framework of [TULIP](https://github.com/CBIIT/TULIP) which is a 1D convolutional neural network for classifying Canine RNA-Seq data with [14,761 genes](https://github.com/CBIIT/CTULIP/blob/main/gene_lists/caninegenes.txt). CTULIP can classify either list into [17](https://github.com/CBIIT/CTULIP/blob/main/labels/17_tumors.csv) or [18](https://github.com/CBIIT/CTULIP/blob/main/labels/18_tumors.csv) (that includes Glioblastoma multiforme) tumor types. 
 
 The resource transfer team trained and validated the models in CTULIP on over 9,000 TCGA RNA-Seq files from the [Genomic Data Commons](https://portal.gdc.cancer.gov/) (GDC) in February 2022. To use CTULIP, the user must provide a file of RNA-Seq data expressed as FPKM-UQ (fragments per kilobase of transcript per million mapped reads upper quartile) for one or more samples. CTULIP then converts FPKM-UQ values to TPM (transcripts per million), performs log10 normalization, and reformats the data into the correct dimensions before applying the selected model. CTULIP generates two files, as described in the following table:
 
@@ -12,8 +12,8 @@ The resource transfer team trained and validated the models in CTULIP on over 9,
 
 | Example File for 17 Tumor Types| Example File for 18 Tumor Types| File Contents |
 | ------------- | ------------- | ------------- |
-| [predictions_17_ctoh_1-1.csv](https://github.com/CBIIT/TULIP/blob/main/example_results/predictions_17_ctoh_1-1.csv)  | [predictions_18_ctoh_1-1.csv](https://github.com/CBIIT/TULIP/blob/main/example_results/predictions_18_ctoh_1-1.csv)   | Only the predicted primary tumor types and their probability scores. |
-| [predictions_full_17_ctoh_1-1.csv](https://github.com/CBIIT/TULIP/blob/main/example_results/predictions_full_17_ctoh_1-1.csv)  | [predictions_full_18_ctoh_1-1.csv](https://github.com/CBIIT/TULIP/blob/main/example_results/predictions_full_17_ctoh_1-1.csv)    | The probabilitity scores for each tumor type for a full reference. |
+| [predictions_17_ctoh_1-1.csv](https://github.com/CBIIT/CTULIP/blob/main/example_results/predictions_17_ctoh_1-1.csv)  | [predictions_18_ctoh_1-1.csv](https://github.com/CBIIT/CTULIP/blob/main/example_results/predictions_18_ctoh_1-1.csv)   | Only the predicted primary tumor types and their probability scores. |
+| [predictions_full_17_ctoh_1-1.csv](https://github.com/CBIIT/CTULIP/blob/main/example_results/predictions_full_17_ctoh_1-1.csv)  | [predictions_full_18_ctoh_1-1.csv](https://github.com/CBIIT/CTULIP/blob/main/example_results/predictions_full_17_ctoh_1-1.csv)    | The probabilitity scores for each tumor type for a full reference. |
 
 ## Software Setup
 
@@ -79,7 +79,7 @@ Arrange the data with the Ensembl IDs in the first column and the expression val
 | ENSG00000000005.5 | TNMD | 2828.4868 | 3321.4867 | 5517.4428 |
 | ENSG00000000419.11 | DPM1 | 508866.9116 | 332778.5383 | 468852.2266 |
 
-The [example_data](https://github.com/CBIIT/TULIP/tree/main/example_data) folder provides example file. 
+The [example_data](https://github.com/CBIIT/CTULIP/tree/main/example_data) folder provides example file. 
 
 If the data file contains any duplicate Ensembl IDs, CTULIP removes them. Additionally, if the data file is missing any Ensembl IDs, CTULIP adds them and sets the expression values to 0 for each sample. 
 
@@ -101,7 +101,7 @@ Consider the following example commands:
    ```bash
    python tulip.py -i example_data/test_data_all.csv -t 18 -o example_results/
    ```
-The results of the above example commands can be found in [example_results](https://github.com/CBIIT/TULIP/blob/main/example_results/).
+The results of the above example commands can be found in [example_results](https://github.com/CBIIT/CTULIP/blob/main/example_results/).
 
 CTULIP parameters:
 
